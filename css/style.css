@@ -1,44 +1,105 @@
+/* ==============================
+   GLOBAL STYLE
+============================== */
+
 body {
-    font-family: "Poppins", Arial;
+    font-family: "Poppins", Arial, sans-serif;
     margin: 0;
-    padding: 0;
-    background: #fff7fb;
+    background: #fff6fb;
+    color: #444;
+}
+
+header {
+    background: #ffcae6;
+    padding: 20px;
     text-align: center;
+    border-bottom: 3px solid #ffc2df;
 }
 
-h1 {
-    margin-top: 20px;
-    color: #d65b8b;
+header h1 {
+    margin: 0;
+    font-size: 28px;
+    color: #b04d8d;
 }
 
-.section-title {
-    margin: 40px 0 10px;
-    font-size: 26px;
+/* ==============================
+   MENU BUTTONS
+============================== */
+
+nav {
+    margin-top: 10px;
 }
 
-/* =======================
-   CARD BUAH
-======================= */
+.menu-btn {
+    background: #ffd8ef;
+    border: 2px solid #ffb6de;
+    padding: 10px 20px;
+    margin: 5px;
+    border-radius: 10px;
+    cursor: pointer;
+    color: #a3457d;
+    font-size: 16px;
+    transition: 0.2s;
+}
+
+.menu-btn:hover {
+    background: #ffe5f5;
+    transform: scale(1.05);
+}
+
+.menu-btn.active {
+    background: #ffb6de;
+    color: white;
+    border-color: #ff9ccd;
+}
+
+/* ==============================
+   PAGE SECTION CONTAINER
+============================== */
+
+.page {
+    display: none;
+    padding: 30px;
+}
+
+.page.active {
+    display: block;
+    animation: fadeIn 0.6s ease;
+}
+
+/* Fade animation */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ==============================
+   FLIP CARDS
+============================== */
 
 .cards {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 20px;
-    max-width: 650px;
+    gap: 25px;
+    max-width: 700px;
     margin: auto;
 }
 
 .card {
     width: 240px;
     height: 300px;
-    margin: auto;
-    position: relative;
-    transform-style: preserve-3d;
-    transition: transform 0.6s ease;
+    perspective: 1000px;
     cursor: pointer;
 }
 
-.card.flip {
+.card .inner {
+    width: 100%;
+    height: 100%;
+    transition: transform 0.6s;
+    transform-style: preserve-3d;
+}
+
+.card.flip .inner {
     transform: rotateY(180deg);
 }
 
@@ -46,18 +107,19 @@ h1 {
     position: absolute;
     width: 100%;
     height: 100%;
-    padding: 10px;
     border-radius: 15px;
     backface-visibility: hidden;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    box-shadow: 0 4px 14px rgba(0,0,0,0.15);
+    padding: 20px;
+    background: white;
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
+    justify-content: center;
 }
 
 .front {
-    background: #ffe1ec;
+    background: #ffe4f5;
 }
 
 .front img {
@@ -65,59 +127,74 @@ h1 {
 }
 
 .back {
-    background: #d8ffe0;
+    background: #e1ffe9;
     transform: rotateY(180deg);
-    padding: 20px;
     font-size: 18px;
 }
 
-/* =======================
+/* ==============================
    MATCHING GAME
-======================= */
+============================== */
 
-.match-section {
-    margin-top: 60px;
-    padding: 20px;
-    background: #fff0f7;
+.match-wrapper {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
 }
 
-.match-container {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    max-width: 700px;
-    margin: auto;
+.fruit-area, .number-area {
+    display: flex;
+    flex-direction: column;
     gap: 20px;
 }
 
-.item, .target {
-    border: 3px dashed #b06d91;
-    border-radius: 15px;
-    padding: 15px;
+.fruit-item, .target-box {
+    width: 150px;
     height: 120px;
+    border: 3px dashed #c27bb2;
+    background: white;
+    border-radius: 15px;
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 22px;
-    font-weight: bold;
-    background: white;
 }
 
-.item img {
+.target-box.correct {
+    background: #d0ffe0;
+}
+
+.target-box.wrong {
+    background: #ffd4d4;
+}
+
+.fruit-item img {
     height: 80px;
 }
 
-/* =======================
-   TRACING ANGKA
-======================= */
+.reset-btn {
+    background: #ffc3df;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    margin-bottom: 15px;
+}
 
-.trace-section {
-    margin-top: 60px;
-    padding: 30px;
+.reset-btn:hover {
+    background: #ff9cc8;
+}
+
+
+/* ==============================
+   TRACING CANVAS
+============================== */
+
+.trace-section h2 {
+    color: #b04d8d;
 }
 
 canvas {
-    margin: 20px 0;
-    border: 2px solid #ffb6d5;
-    border-radius: 10px;
-    background: white;
+    border: 3px solid #f7b8d7;
+    border-radius: 15px;
+    background: #ffffff;
 }

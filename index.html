@@ -2,109 +2,148 @@
 <html lang="id">
 <head>
 <meta charset="UTF-8">
-<title>Belajar Buah & Angka</title>
+<title>Belajar Buah Interaktif</title>
 
 <link rel="stylesheet" href="css/style.css">
-
+<link rel="stylesheet" href="css/pages.css">
 </head>
 <body>
 
-<h1>Belajar Buah dan Angka</h1>
+<header>
+    <h1>Belajar Buah & Angka</h1>
+    <nav>
+        <button class="menu-btn active" data-page="home">Buah</button>
+        <button class="menu-btn" data-page="matching">Cocokkan</button>
+        <button class="menu-btn" data-page="tracing">Menebalkan Angka</button>
+    </nav>
+</header>
 
-<p class="section-title">Klik kartunya untuk melihat penjelasan!</p>
+<!-- ==========================
+        PAGE 1: FLIP CARD
+========================== -->
+<section id="home" class="page active">
 
-<!-- =======================
-     BAGIAN 1: KARTU BUAH
-======================= -->
-<div class="cards">
+    <h2>Klik kartunya untuk membalik!</h2>
 
-    <div class="card">
-        <div class="front">
-            <h2>1</h2>
-            <img src="img/apel.png" alt="Apel">
-            <p>Apel</p>
+    <div class="cards">
+
+        <div class="card" data-sound="apel">
+            <div class="inner">
+                <div class="front">
+                    <h3>1</h3>
+                    <img src="img/apel.png">
+                    <p>Apel</p>
+                </div>
+                <div class="back">Apel adalah buah merah yang manis.</div>
+            </div>
         </div>
-        <div class="back">Apel adalah buah berwarna merah dan rasanya manis.</div>
-    </div>
 
-    <div class="card">
-        <div class="front">
-            <h2>2</h2>
-            <img src="img/alpukat.png" alt="Alpukat">
-            <p>Alpukat</p>
+        <div class="card" data-sound="alpukat">
+            <div class="inner">
+                <div class="front">
+                    <h3>2</h3>
+                    <img src="img/alpukat.png">
+                    <p>Alpukat</p>
+                </div>
+                <div class="back">Alpukat lembut dan kaya nutrisi.</div>
+            </div>
         </div>
-        <div class="back">Alpukat kaya nutrisi, lembut, dan sangat sehat.</div>
-    </div>
 
-    <div class="card">
-        <div class="front">
-            <h2>3</h2>
-            <img src="img/durian.png" alt="Durian">
-            <p>Durian</p>
+        <div class="card" data-sound="durian">
+            <div class="inner">
+                <div class="front">
+                    <h3>3</h3>
+                    <img src="img/durian.png">
+                    <p>Durian</p>
+                </div>
+                <div class="back">Durian memiliki aroma kuat.</div>
+            </div>
         </div>
-        <div class="back">Durian memiliki aroma kuat dan daging buah lembut.</div>
-    </div>
 
-    <div class="card">
-        <div class="front">
-            <h2>4</h2>
-            <img src="img/anggur.png" alt="Anggur">
-            <p>Anggur</p>
+        <div class="card" data-sound="anggur">
+            <div class="inner">
+                <div class="front">
+                    <h3>4</h3>
+                    <img src="img/anggur.png">
+                    <p>Anggur</p>
+                </div>
+                <div class="back">Anggur tumbuh bergerombol.</div>
+            </div>
         </div>
-        <div class="back">Anggur kecil, manis, dan tumbuh bergerombol.</div>
-    </div>
 
-    <div class="card">
-        <div class="front">
-            <h2>5</h2>
-            <img src="img/strawberry.png" alt="Strawberry">
-            <p>Strawberry</p>
+        <div class="card" data-sound="strawberry">
+            <div class="inner">
+                <div class="front">
+                    <h3>5</h3>
+                    <img src="img/strawberry.png">
+                    <p>Strawberry</p>
+                </div>
+                <div class="back">Strawberry segar dan merah.</div>
+            </div>
         </div>
-        <div class="back">Strawberry berwarna merah segar dengan rasa manis asam.</div>
-    </div>
-
-</div>
-
-<!-- =======================
-     BAGIAN 2: MATCHING GAME
-======================= -->
-
-<div class="match-section">
-    <h2>Menghubungkan Buah-Buahan dengan Angka</h2>
-    <p>Hubungkan jumlah buah dengan angka yang sesuai.</p>
-
-    <div class="match-container">
-
-        <div class="item" draggable="true" id="item1"><img src="img/apel.png"></div>
-        <div class="target" id="t1">1</div>
-
-        <div class="item" draggable="true" id="item2"><img src="img/alpukat.png"></div>
-        <div class="target" id="t2">2</div>
-
-        <div class="item" draggable="true" id="item3"><img src="img/durian.png"></div>
-        <div class="target" id="t3">3</div>
-
-        <div class="item" draggable="true" id="item4"><img src="img/anggur.png"></div>
-        <div class="target" id="t4">4</div>
-
-        <div class="item" draggable="true" id="item5"><img src="img/strawberry.png"></div>
-        <div class="target" id="t5">5</div>
 
     </div>
-</div>
+</section>
 
-<!-- =======================
-     BAGIAN 3: TRACING ANGKA
-======================= -->
+<!-- ==========================
+        PAGE 2: MATCHING GAME
+========================== -->
+<section id="matching" class="page">
+    <h2>Cocokkan buah dengan angkanya!</h2>
 
-<div class="trace-section">
+    <button id="resetMatch" class="reset-btn">Reset</button>
+
+    <div class="match-wrapper">
+
+        <!-- Area Buah -->
+        <div class="fruit-area">
+
+            <div class="fruit-item" draggable="true" data-num="1">
+                <img src="img/apel.png">
+            </div>
+
+            <div class="fruit-item" draggable="true" data-num="2">
+                <img src="img/alpukat.png">
+            </div>
+
+            <div class="fruit-item" draggable="true" data-num="3">
+                <img src="img/durian.png">
+            </div>
+
+            <div class="fruit-item" draggable="true" data-num="4">
+                <img src="img/anggur.png">
+            </div>
+
+            <div class="fruit-item" draggable="true" data-num="5">
+                <img src="img/strawberry.png">
+            </div>
+
+        </div>
+
+
+        <!-- Area Angka (Random Order) -->
+        <div class="number-area" id="numberArea">
+            <!-- akan diisi JS -->
+        </div>
+
+    </div>
+</section>
+
+<!-- ==========================
+        PAGE 3: TRACING
+========================== -->
+<section id="tracing" class="page">
     <h2>Mari Menebalkan Angka 1–10</h2>
-    <p>Ayo, tebalkan angka-angka di bawah ini dengan mengikuti garis putus-putus!</p>
-
+    <p>Ayo, tebalkan angka-angka dengan mengikuti garis putus-putus!</p>
     <canvas id="traceCanvas" width="600" height="350"></canvas>
-</div>
+</section>
 
-<script src="js/script.js"></script>
+
+<!-- LOAD JS -->
+<script src="js/app.js"></script>
+<script src="js/flipcard.js"></script>
+<script src="js/matching.js"></script>
+<script src="js/tracing.js"></script>
 
 </body>
 </html>
