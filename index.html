@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<title>Belajar Buah & Angka</title>
+
+<link rel="stylesheet" href="css/style.css">
+
+</head>
+<body>
+
+<h1>Belajar Buah dan Angka</h1>
+
+<p class="section-title">Klik kartunya untuk melihat penjelasan!</p>
+
+<!-- =======================
+     BAGIAN 1: KARTU BUAH
+======================= -->
+<div class="cards">
+
+    <div class="card">
+        <div class="front">
+            <h2>1</h2>
+            <img src="img/apel.png" alt="Apel">
+            <p>Apel</p>
+        </div>
+        <div class="back">Apel adalah buah berwarna merah dan rasanya manis.</div>
+    </div>
+
+    <div class="card">
+        <div class="front">
+            <h2>2</h2>
+            <img src="img/alpukat.png" alt="Alpukat">
+            <p>Alpukat</p>
+        </div>
+        <div class="back">Alpukat kaya nutrisi, lembut, dan sangat sehat.</div>
+    </div>
+
+    <div class="card">
+        <div class="front">
+            <h2>3</h2>
+            <img src="img/durian.png" alt="Durian">
+            <p>Durian</p>
+        </div>
+        <div class="back">Durian memiliki aroma kuat dan daging buah lembut.</div>
+    </div>
+
+    <div class="card">
+        <div class="front">
+            <h2>4</h2>
+            <img src="img/anggur.png" alt="Anggur">
+            <p>Anggur</p>
+        </div>
+        <div class="back">Anggur kecil, manis, dan tumbuh bergerombol.</div>
+    </div>
+
+    <div class="card">
+        <div class="front">
+            <h2>5</h2>
+            <img src="img/strawberry.png" alt="Strawberry">
+            <p>Strawberry</p>
+        </div>
+        <div class="back">Strawberry berwarna merah segar dengan rasa manis asam.</div>
+    </div>
+
+</div>
+
+<!-- =======================
+     BAGIAN 2: MATCHING GAME
+======================= -->
+
+<div class="match-section">
+    <h2>Menghubungkan Buah-Buahan dengan Angka</h2>
+    <p>Hubungkan jumlah buah dengan angka yang sesuai.</p>
+
+    <div class="match-container">
+
+        <div class="item" draggable="true" id="item1"><img src="img/apel.png"></div>
+        <div class="target" id="t1">1</div>
+
+        <div class="item" draggable="true" id="item2"><img src="img/alpukat.png"></div>
+        <div class="target" id="t2">2</div>
+
+        <div class="item" draggable="true" id="item3"><img src="img/durian.png"></div>
+        <div class="target" id="t3">3</div>
+
+        <div class="item" draggable="true" id="item4"><img src="img/anggur.png"></div>
+        <div class="target" id="t4">4</div>
+
+        <div class="item" draggable="true" id="item5"><img src="img/strawberry.png"></div>
+        <div class="target" id="t5">5</div>
+
+    </div>
+</div>
+
+<!-- =======================
+     BAGIAN 3: TRACING ANGKA
+======================= -->
+
+<div class="trace-section">
+    <h2>Mari Menebalkan Angka 1–10</h2>
+    <p>Ayo, tebalkan angka-angka di bawah ini dengan mengikuti garis putus-putus!</p>
+
+    <canvas id="traceCanvas" width="600" height="350"></canvas>
+</div>
+
+<script src="js/script.js"></script>
+
+</body>
+</html>

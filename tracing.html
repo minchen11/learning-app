@@ -1,0 +1,25 @@
+<canvas id="traceCanvas" width="400" height="200" style="border:1px solid #ccc"></canvas>
+
+<script>
+let canvas = document.getElementById("traceCanvas");
+let ctx = canvas.getContext("2d");
+
+ctx.font = "120px Arial";
+ctx.strokeStyle = "#ff7f7f";
+ctx.setLineDash([10, 10]);
+ctx.strokeText("1", 150, 150);
+
+ctx.setLineDash([]);
+let drawing = false;
+
+canvas.addEventListener("mousedown", () => drawing = true);
+canvas.addEventListener("mouseup", () => drawing = false);
+
+canvas.addEventListener("mousemove", function(e){
+  if(!drawing) return;
+  ctx.fillStyle = "#333";
+  ctx.beginPath();
+  ctx.arc(e.offsetX, e.offsetY, 5, 0, Math.PI*2);
+  ctx.fill();
+});
+</script>
